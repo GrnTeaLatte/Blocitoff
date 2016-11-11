@@ -2,14 +2,28 @@
 <html>
   <head>
     <title>Blocitoff</title>
-    <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+      <%= csrf_meta_tags %>
+
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-    <%= yield %>
+    <div class="container">
+      <ul class="nav nav-tabs">
+
+        <div class="pull-right user-info">
+          <% if current_user.present? %>
+            <%= link_to current_user.email %>
+          <% end %>
+        </div>
+
+        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+        <%= yield %>
+      </ul>
+    </div>
+
   </body>
 </html>
