@@ -15,7 +15,7 @@
       <ul class="nav nav-tabs">
 
         <div class="pull-right user-info">
-          <% if current_user.present? %>
+          <% if user_signed_in? %>
             <%= link_to current_user.email %>
           <% end %>
         </div>
