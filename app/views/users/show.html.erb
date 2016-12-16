@@ -1,1 +1,15 @@
 <h1>Welcome, <%= current_user.email %></h1>
+<% @items.each do |item| %>
+  <%= render partial: "items/item", locals: { item: item} %>
+<% end %>
+
+<%= form_for [@user, @item] do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control', placeholder: "Enter Item Name" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit "Save", class: 'btn btn-success' %>
+  </div>
+<% end %>
