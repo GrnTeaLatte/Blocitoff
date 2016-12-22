@@ -1,7 +1,12 @@
 <h1>Welcome, <%= current_user.email %></h1>
-<% @items.each do |item| %>
-  <%= render partial: "items/item", locals: { item: item} %>
-<% end %>
+
+<ul class="list-group">
+  <% @items.each do |item| %>
+    <li class="list-group-item" id="item-<%= item.id %>">
+      <%= render partial: "items/item", locals: { item: item} %>
+    </li>
+  <% end %>
+</ul>
 
 <%= form_for [@user, @item] do |f| %>
   <div class="form-group">

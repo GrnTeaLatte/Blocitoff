@@ -13,4 +13,10 @@ class ItemsController < ApplicationController
     # 3. make sure you save the item...
     redirect_to root_path
   end
+
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+    redirect_to root_path
+  end
 end
