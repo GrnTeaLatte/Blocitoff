@@ -7,3 +7,16 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # rake db:seed
+
+user = User.create!(
+  email: "alexismean@alex.com",
+  password: "password"
+)
+
+15.times do
+  Item.create!(
+    name: Faker::Lorem.word,
+    user: user
+  )
+end
+items = Item.all
