@@ -1,2 +1,4 @@
 <%= item.name %>
 <%= link_to "", item, method: :delete, class: 'glyphicon glyphicon-ok' %>
+
+<%= distance_of_time_in_words(item.created_at, Time.now, options = {}) %>
